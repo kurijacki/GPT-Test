@@ -3,6 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dobrodošli</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.04);
+      --accent: #f59e0b;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
   <title>Hallo World</title>
   <style>
     body {
@@ -11,6 +27,246 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.15), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      padding: 2rem;
+    }
+
+    main {
+      width: min(960px, 100%);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      padding: 3rem;
+      backdrop-filter: blur(12px);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      color: #0f172a;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    nav a.primary {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #0f172a;
+      border: none;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    nav a.primary:hover,
+    nav a.primary:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.2rem, 3vw + 1rem, 3.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    p.lead {
+      margin: 0 0 1.5rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 32ch;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    .card {
+      padding: 1.25rem 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--text);
+      font-weight: 600;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+    }
+
+    .list .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
+    }
+
+    .cta {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .cta a.primary {
+      background: linear-gradient(135deg, #22c55e, #10b981);
+      color: #042f2e;
+      border: none;
+      box-shadow: 0 12px 40px rgba(16, 185, 129, 0.3);
+    }
+
+    .cta a:hover,
+    .cta a:focus-visible {
+      transform: translateY(-1px);
+      border-color: var(--border);
+    }
+
+    .meta {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .metric {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    footer .links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    footer a:hover,
+    footer a:focus-visible {
+      background: rgba(255, 255, 255, 0.05);
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #f0f4ff, #e3f9e5);
       color: #1f2937;
@@ -39,6 +295,74 @@
 </head>
 <body>
   <main>
+    <header>
+      <div class="brand">
+        <div class="brand-icon">∞</div>
+        <div>Nova</div>
+      </div>
+      <nav>
+        <a href="#about">O nama</a>
+        <a href="#ponuda">Ponuda</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="primary" href="#">Započni</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="pill">Dobrodošli</div>
+        <h1>Moderni digitalni doček za vaše goste i klijente</h1>
+        <p class="lead">
+          Pripremili smo elegantnu landing stranicu koja jasno predstavlja vaš brend,
+          ističe ključne benefite i poziva posetioce na akciju.
+        </p>
+        <div class="cta">
+          <a class="primary" href="#kontakt">Rezervišite razgovor</a>
+          <a href="#ponuda">Pogledajte ponudu</a>
+        </div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Jasan naslov i kratka poruka dobrodošlice.</span></li>
+          <li><span class="dot"></span><span>CTA dugmad spremna za konverziju.</span></li>
+          <li><span class="dot"></span><span>Minimalistički dizajn koji stavlja fokus na sadržaj.</span></li>
+        </ul>
+      </div>
+      <div class="card" aria-label="Pregled ponude" id="ponuda">
+        <div class="pill" style="margin-bottom: 0.75rem;">Ponuda</div>
+        <h2 style="margin: 0 0 0.5rem;">Dobrodošlica sa svrhom</h2>
+        <p style="color: var(--muted); margin: 0 0 1rem;">
+          Stranica dolazi sa jasno definisanim sekcijama koje mogu da se prilagode vašem timu.
+        </p>
+        <ul class="list" style="margin: 0;">
+          <li><span class="dot"></span><span>Hero blok sa naslovom, podnaslovom i CTA.</span></li>
+          <li><span class="dot"></span><span>Istaknute metrike za kredibilitet.</span></li>
+          <li><span class="dot"></span><span>Kontakt sekcija za brzu konverziju.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="meta" id="about">
+      <div class="metric">
+        <strong>120+</strong>
+        <span>projekata sa jasnim prvim utiskom</span>
+      </div>
+      <div class="metric">
+        <strong>98%</strong>
+        <span>zadovoljnih posetilaca po merenju</span>
+      </div>
+      <div class="metric">
+        <strong>24/7</strong>
+        <span>tim podrške za vašu stranicu</span>
+      </div>
+    </section>
+
+    <footer id="kontakt">
+      <div>Spremni za saradnju? Pišite nam danas.</div>
+      <div class="links">
+        <a href="#">Email</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Lokacija</a>
+      </div>
+    </footer>
     <h1>Hallo World</h1>
     <p>Welcome to your simple greeting page.</p>
   </main>
