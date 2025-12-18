@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dobrodošli · Nova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0b1021;
+      --card: rgba(255, 255, 255, 0.06);
+      --soft: rgba(255, 255, 255, 0.08);
+      --accent: #7c3aed;
+      --accent-2: #22d3ee;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.16), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.22), transparent 36%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+
+    main {
+      width: min(960px, 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      backdrop-filter: blur(14px);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      color: #0b1021;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.55rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    nav a.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1021;
+      border: none;
+      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.35);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1.25rem, 3vw, 2rem);
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.16);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      color: var(--text);
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    h1 {
+      margin: 0.75rem 0 0.5rem;
+      font-size: clamp(2.2rem, 4vw, 3.1rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    p.lead {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 36ch;
+    }
+
+    .cta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .cta a.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1021;
+      border: none;
+      box-shadow: 0 12px 40px rgba(34, 211, 238, 0.28);
+    }
+
+    .cta a:hover,
+    .cta a:focus-visible {
+      transform: translateY(-1px);
+      border-color: var(--border);
+    }
+
+    .points {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .points li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+      width: fit-content;
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer .links {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.4rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, border 0.2s ease;
+    }
+
+    footer a:hover,
+    footer a:focus-visible {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 1.2rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      nav a {
+        flex: 1 1 48%;
+        text-align: center;
+      }
+
+      .cta a {
+        flex: 1 1 48%;
+        justify-content: center;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">
+        <div class="brand-icon">N</div>
+        <div>Nova Studio</div>
+      </div>
+      <nav>
+        <a href="#usluge">Usluge</a>
+        <a href="#benefiti">Zašto mi</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="primary" href="#kontakt">Rezerviši</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="tag">Dobrodošli · premium prvi utisak</div>
+        <h1>Moderni digitalni doček za brendove koji žele više</h1>
+        <p class="lead">
+          Dizajniramo iskustvo dobrodošlice koje je jasno, brzo i optimizovano za svaki ekran.
+          Prenesite vrednost u prvih nekoliko sekundi i pretvorite posetioce u kontakte.
+        </p>
+        <div class="cta">
+          <a class="primary" href="#kontakt">Zakaži intro poziv</a>
+          <a href="#usluge">Pogledaj usluge</a>
+        </div>
+        <ul class="points">
+          <li><span class="dot"></span><span>Mobile-first dizajn za telefone i tablete.</span></li>
+          <li><span class="dot"></span><span>Jasni CTA-ovi i struktura za brzu konverziju.</span></li>
+          <li><span class="dot"></span><span>Brza učitavanja zahvaljujući laganoj, čistoj strukturi.</span></li>
+        </ul>
+      </div>
+
+      <div class="card" id="usluge" aria-label="Kratak pregled usluga">
+        <div class="pill">Kratak pregled</div>
+        <h2>Šta dobijate</h2>
+        <p>Jednostavna početna strana koja vodi posetioce do kontakta ili prijave.</p>
+        <div class="grid">
+          <div>
+            <div class="pill">UX &amp; UI</div>
+            <p>Struktura za jasan tok: hero, benefiti, CTA, kontakt.</p>
+          </div>
+          <div>
+            <div class="pill">Performanse</div>
+            <p>Lagana statička stranica optimizovana za mobilne uređaje.</p>
+          </div>
+          <div>
+            <div class="pill">Branding</div>
+            <p>Prilagodljive boje, logo i ton poruke.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="benefiti" style="margin-top: 1.75rem;">
+      <div class="card">
+        <div class="pill">Vreme</div>
+        <h2>Launch za 48h</h2>
+        <p>Pripremamo stranicu za dva dana, spremnu za produkciju.</p>
+      </div>
+      <div class="card">
+        <div class="pill">SEO</div>
+        <h2>Čisto i brzo</h2>
+        <p>Semantički HTML, meta tagovi i optimizovan CSS.</p>
+      </div>
+      <div class="card">
+        <div class="pill">Podrška</div>
+        <h2>All-in</h2>
+        <p>Onboarding, analiza, mala podešavanja bez dodatnih troškova.</p>
+      </div>
+    </section>
+
+    <footer id="kontakt">
+      <div>Spremni za saradnju? Pišite nam i pokrenite svoj novi digitalni doček.</div>
+      <div class="links">
+        <a href="mailto:hello@nova.studio">Email</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="tel:+381601234567">Poziv</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
